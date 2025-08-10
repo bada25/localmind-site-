@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
+/* Global monochrome theme - only black, white, and gray */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --border: #ffffff;
+  --accent: #cccccc;
+  --muted: #333333;
 }
 
 @theme inline {
@@ -12,11 +16,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Force monochrome appearance */
+html {
+  filter: grayscale(100%);
 }
 
 body {
@@ -25,5 +27,31 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-html, body { background: #000; color: #fff; }
-a { color: #fff; }
+/* Ensure all elements use monochrome colors */
+html, body { 
+  background: #000000; 
+  color: #ffffff; 
+}
+
+a { 
+  color: #ffffff; 
+  text-decoration: underline;
+}
+
+/* Override any potential color variations */
+* {
+  color: inherit !important;
+  border-color: #ffffff !important;
+}
+
+/* Ensure buttons and interactive elements are monochrome */
+button, a {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+button:hover, a:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
