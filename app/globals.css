@@ -7,6 +7,7 @@
   --border: #ffffff;
   --accent: #cccccc;
   --muted: #333333;
+  --focus: #ffffff;
 }
 
 @theme inline {
@@ -29,22 +30,28 @@ body {
 
 /* Ensure all elements use monochrome colors */
 html, body { 
-  background: #000000; 
-  color: #ffffff; 
+  background: #000000 !important; 
+  color: #ffffff !important; 
 }
 
-a { 
-  color: #ffffff; 
-  text-decoration: underline;
-}
-
-/* Override any potential color variations */
+/* Global element styling */
 * {
   color: inherit !important;
   border-color: #ffffff !important;
 }
 
-/* Ensure buttons and interactive elements are monochrome */
+/* Links */
+a { 
+  color: #ffffff !important; 
+  text-decoration: underline;
+}
+
+a:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Buttons */
 button, a {
   background-color: #000000 !important;
   color: #ffffff !important;
@@ -54,4 +61,40 @@ button, a {
 button:hover, a:hover {
   background-color: #ffffff !important;
   color: #000000 !important;
+}
+
+/* Inputs and form elements */
+input, textarea, select {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #cccccc !important;
+}
+
+/* Focus styles with white outline */
+*:focus {
+  outline: 2px solid #ffffff !important;
+  outline-offset: 2px !important;
+}
+
+/* Remove any potential green-blue colors */
+* {
+  background-color: #000000 !important;
+}
+
+/* Ensure text is always white */
+h1, h2, h3, h4, h5, h6, p, span, div, label {
+  color: #ffffff !important;
+}
+
+/* Override any Tailwind color classes that might introduce colors */
+.bg-blue-500, .bg-green-500, .bg-blue-600, .bg-green-600,
+.text-blue-500, .text-green-500, .text-blue-600, .text-green-600,
+.border-blue-500, .border-green-500, .border-blue-600, .border-green-600 {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
 }
